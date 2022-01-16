@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Wiki Translate</title>
+</head>
+<body>
+    <h1>Wikipedia Search</h1>
+    <form  method="post">
+        {% csrf_token %}
+        <input type="text" name="article_name">
+        <label for="lang">Choose a language:</label>
+        <select id="lang" name="lang">
+          <option value="hi">Hindi</option>
+          <option value="pa">Punjabi</option>
+          <option value="bn">Bengali</option>
+          <option value="ta">Tamil</option>
+          <option value="te">Telugu</option>
+        </select> 
+        <button type="submit">Translate</button>
+    </form>
+    {% if result %}
+        {{result}}
+    {% endif %}
+
+    {% if project_list %}
+        <ul>
+        {% for project in project_list %}
+            <li><a href="{% url 'detail' project.id %}">{{ project.wiki_title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No exiting projects.</p>
+    {% endif %}
+</body>
+</html>
