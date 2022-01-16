@@ -41,7 +41,17 @@
     </h2>
     {% if project_list %}
         {% for project in project_list %}
-            <li><a href="{% url 'detail' project.id %}">{{ project.wiki_title }}</a></li>
+            {% if project.target_lang == 'bn' %}
+            <li><a href="{% url 'detail' project.id %}">{{ project.wiki_title }} - Bengali</a></li>
+            {% elif project.target_lang == 'hi' %}
+            <li><a href="{% url 'detail' project.id %}">{{ project.wiki_title }} - Hindi</a></li>
+            {% elif project.target_lang == 'pa' %}
+            <li><a href="{% url 'detail' project.id %}">{{ project.wiki_title }} - Punjabi</a></li>
+            {% elif project.target_lang == 'te' %}
+            <li><a href="{% url 'detail' project.id %}">{{ project.wiki_title }} - Telugu</a></li>
+            {% elif project.target_lang == 'Ta' %}
+            <li><a href="{% url 'detail' project.id %}">{{ project.wiki_title }} - Tamil</a></li>
+            {% endif %}
         {% endfor %}
     {% else %}
         <p>No exiting projects.</p>
