@@ -1,1 +1,1 @@
-web: gunicorn wikitranslate/wikitranslate.wsgi --log-file
+web: gunicorn wikitranslate/wikitranslate.wsgi --log-file -
