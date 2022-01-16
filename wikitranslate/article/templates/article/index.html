@@ -5,31 +5,33 @@
 <body>
     <h1>Wikipedia Translate</h1>
     <br>
-    <p>
-        <form  method="post">
-            {% csrf_token %}
+    <form  method="post">
+        {% csrf_token %}
+        <p>
             Enter Article title
-            <input type="text" name="article_name">
-            <br><br>
-            <label for="lang">Choose a language to translate the article to:</label>
-            <select id="lang" name="lang">
-              <option value="hi">Hindi</option>
-              <option value="pa">Punjabi</option>
-              <option value="bn">Bengali</option>
-              <option value="ta">Tamil</option>
-              <option value="te">Telugu</option>
-            </select> 
-            <br><br>
-            <button type="submit">Translate</button>
-        </form>
-    </p>
+        <input type="text" name="article_name">
+        <br><br>
+        <label for="lang">Choose a language to translate the article to:</label>
+        <select id="lang" name="lang">
+            <option value="hi">Hindi</option>
+            <option value="pa">Punjabi</option>
+            <option value="bn">Bengali</option>
+            <option value="ta">Tamil</option>
+            <option value="te">Telugu</option>
+        </select> 
+        <br><br>
+        <button type="submit">Translate</button>
+        </p>
+    </form>
     
     <p>
         {% if result %}
             <h2>
                 Summary of the Article
             </h2>
-            {{result}}
+            <p>
+                {{result}}
+            </p>
         {% endif %}
     </p>
     
@@ -51,8 +53,76 @@
     body{
         text-align: center;
         justify-content: center;
+        background-color: #126BBF;
     }
+
     li{
         list-style: none;
     }
+
+    button {
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        background-color: lightskyblue;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    input[type="text"] {
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    select {
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        color: #ffffff;
+        font-family: 'Raleway',sans-serif;
+        font-size: 62px;
+        font-weight: 800;
+        line-height: 72px;
+        margin: 0 0 24px;
+        text-transform: uppercase; 
+    }
+
+    h2 {
+        color: #ffffff;
+        font-family: 'Raleway',sans-serif;
+        font-size: 30px; font-weight: 800;
+        line-height: 36px;
+        margin: 0 0 24px;
+        text-align: center;
+    }
+
+    p { 
+        color: #f8f8f8;
+        font-family: 'Raleway',sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
+        margin: 0 0 24px; 
+    }
+
+
+    a{
+        color: white;
+        text-decoration: underline;
+        font-family: 'Raleway',sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 32px;
+    }
+
+
+a:hover { color: #1c1c1c; text-decoration: underline; }
 </style>
