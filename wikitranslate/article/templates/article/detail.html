@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="{% static 'js/transliteration-input.bundle.js' %}">
+        <script type="text/javascript" src="{% static 'js/transliteration-input.bundle.js' %}"></script>
         <span><a href="{% url 'index' %}">Back to Home</a></span>
     </head>
 
@@ -30,7 +30,7 @@
 
         <script type="text/javascript">
             let transliterationInput = document.getElementById("transliteration");
-            enableTransliteration(transliterationInput, "bn");
+            enableTransliteration(transliterationInput, "{{project.target_lang}}");
         </script>
     </body>
 </html>
