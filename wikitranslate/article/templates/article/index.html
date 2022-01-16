@@ -3,32 +3,56 @@
     <title>Wiki Translate</title>
 </head>
 <body>
-    <h1>Wikipedia Search</h1>
-    <form  method="post">
-        {% csrf_token %}
-        <input type="text" name="article_name">
-        <label for="lang">Choose a language:</label>
-        <select id="lang" name="lang">
-          <option value="hi">Hindi</option>
-          <option value="pa">Punjabi</option>
-          <option value="bn">Bengali</option>
-          <option value="ta">Tamil</option>
-          <option value="te">Telugu</option>
-        </select> 
-        <button type="submit">Translate</button>
-    </form>
-    {% if result %}
-        {{result}}
-    {% endif %}
-
+    <h1>Wikipedia Translate</h1>
+    <br>
+    <p>
+        <form  method="post">
+            {% csrf_token %}
+            Enter Article title
+            <input type="text" name="article_name">
+            <br><br>
+            <label for="lang">Choose a language to translate the article to:</label>
+            <select id="lang" name="lang">
+              <option value="hi">Hindi</option>
+              <option value="pa">Punjabi</option>
+              <option value="bn">Bengali</option>
+              <option value="ta">Tamil</option>
+              <option value="te">Telugu</option>
+            </select> 
+            <br><br>
+            <button type="submit">Translate</button>
+        </form>
+    </p>
+    
+    <p>
+        {% if result %}
+            <h2>
+                Summary of the Article
+            </h2>
+            {{result}}
+        {% endif %}
+    </p>
+    
+    <br>
+    <h2>
+        Available Projects
+    </h2>
     {% if project_list %}
-        <ul>
         {% for project in project_list %}
             <li><a href="{% url 'detail' project.id %}">{{ project.wiki_title }}</a></li>
         {% endfor %}
-        </ul>
     {% else %}
         <p>No exiting projects.</p>
     {% endif %}
 </body>
 </html>
+
+<style>
+    body{
+        text-align: center;
+        justify-content: center;
+    }
+    li{
+        list-style: none;
+    }
+</style>

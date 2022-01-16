@@ -3,6 +3,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="{% static 'js/transliteration-input.bundle.js' %}">
+        <span><a href="{% url 'index' %}">Back to Home</a></span>
     </head>
 
     <body>
@@ -11,18 +12,19 @@
             {% csrf_token %}
             <table>
                 <tr>
-                    <th>Original Sentences</th>
+                    <th style="width:60%">Original Sentences</th>
                     <th>Translation</th>
                 </tr>
                 {% for sentence in project.sentence_set.all %}
                 <tr>
-                    <th>{{ sentence.original_sentence }}</th>
+                    <th style="width:60%">{{ sentence.original_sentence }}</th>
                     <th>
                         <input type="text" id="transliteration" name={{sentence.pk}} value={{sentence.translated_sentence}}>
                     </th>
                 </tr>
                 {% endfor %}
             </table>
+            <br>
             <input type="submit" value="Submit">
         </form>
 
@@ -32,3 +34,33 @@
         </script>
     </body>
 </html>
+
+<style>
+    body{
+        text-align: center;
+        justify-content: center;
+    }
+    table{
+        width: 100%; 
+        margin-top: 10px; 
+        font-size: 1.2rem;
+        border-spacing: 10px;
+        border: 2px solid black;
+    }
+    th, td {
+        padding: 10px;
+    }
+    tr:nth-child(even) {
+        background-color: #D6EEEE;
+    }
+    tr {
+        border-bottom: 15px solid black;
+    }
+    tr:hover {
+        background-color: #c3cbcc;
+    }
+    input[type="text"] {
+    height: 50px;
+    width: 100%;
+}
+</style>

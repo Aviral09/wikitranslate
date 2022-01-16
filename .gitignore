@@ -1,0 +1,6 @@
+# created by virtualenv automatically
+Lib/
+Scripts/
+pyvenv.cfg
+wikitranslate/db.sqlite3
+wikitranslate/wikitranslate/_pycache_
