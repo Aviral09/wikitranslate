@@ -14,7 +14,6 @@ Wiki Translate is a Django Web App deployed at (https://wikitranslateavi.herokua
 - [How to use](#how-to-use)
 - [Installation 🐣](#installation)
 - [Starting the app](#starting-the-app)
-- [Repository Structure](#repository-structure-guidelines)
 
 ## Features Implemented
 - Storing article title and target language.
