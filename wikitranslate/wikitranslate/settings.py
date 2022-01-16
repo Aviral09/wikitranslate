@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vij9n$q)am5t-7wzjen_(t_p!i#q6vub7lr^*_15s!tcn9=_g='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://wikitranslateavi.herokuapp.com/']
 
